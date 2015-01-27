@@ -10,4 +10,3 @@ Example: get_bulk_weather(77007, 'h', '1/1/2014', '1/1/2015') will pull hourly d
 This will create a csv file for each day.
 
 Per wunderground's api I have limited the bulk request function to 500 requests when pulling hourly data, please be nice :)
-==============
