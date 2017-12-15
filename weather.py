@@ -53,9 +53,9 @@ def get_weather(zipcode, interval, from_date, to_date=None, filename='weather.cs
         format_date(to_date)
     url_begin = 'http://www.wunderground.com/history/airport/'+station+'/'+str(date.year)+'/'+str(date.month)+'/'+str(date.day)+'/'+interval+'History.html?'
     if interval == 'Custom':
-        url =  url_begin+'dayend='+str(to_date.day)+'&monthend='+str(to_date.month)+'&yearend='+str(to_date.year)+'&format=1'
+        url =  url_begin+'dayend='+str(to_date.day)+'&monthend='+str(to_date.month)+'&yearend='+str(to_date.year)+'&HideSpecis=1'
     else:
-        url = url_begin + 'format=1'
+        url = url_begin + 'HideSpecis=1'
     
     print('retrieving... ' + url)
     r = requests.get(url)
