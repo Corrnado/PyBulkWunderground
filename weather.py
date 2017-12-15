@@ -59,7 +59,7 @@ def get_weather(zipcode, interval, from_date, to_date=None, filename='weather.cs
     
     print('retrieving... ' + url)
     r = requests.get(url)
-    soup = BeautifulSoup(r.text)
+    soup = BeautifulSoup(r.text, "html.parser"))
     weather_string = soup.p.get_text()
     weather_stringio = StringIO(weather_string)
     
