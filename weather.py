@@ -61,6 +61,9 @@ def get_weather(zipcode, interval, from_date, to_date=None, filename='weather.cs
     r = requests.get(url)
     soup = BeautifulSoup(r.text, "html.parser"))
     weather_table = soup.find_all("tr", class_ ="no-metars")
+    weather_string = [[] for i in range(72)]
+    for row, content in enumerate(weather_string, start = 0):
+        weather_string[row] = [[] for i in range(13)]
     
     weather_stringio = StringIO(weather_string)
     
