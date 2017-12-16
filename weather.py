@@ -64,6 +64,18 @@ def get_weather(zipcode, interval, from_date, to_date=None, filename='weather.cs
     weather_string = [[] for i in range(72)]
     for row, content in enumerate(weather_string, start = 0):
         weather_string[row] = [[] for i in range(13)]
+    for row, content in enumerate(weather_table, start = 0):
+            td_all = content.find_all("td")
+            for ind, value in enumerate(td_all, start = 0):
+                if  value.find("span", class_ = "wx-value") is None:
+                    if value.get_text() == "\n  -\n":
+                        weather_string[row][ind] = "-"
+                    elif value.get_text() == "\n\t\xa0\n":
+                        weather_string[row][ind] = None
+                    else:
+                        weather_string[row][ind] = value.get_text()
+                else:
+                    weather_string[row][ind] = value.find("span", class_ = "wx-value").get_text()
     
     weather_stringio = StringIO(weather_string)
     
