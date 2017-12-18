@@ -75,7 +75,7 @@ def get_weather(zipcode, interval, from_date, to_date=None, filename='weather.cs
                         weather_string[row][ind] = value.get_text()
                 else:
                     weather_string[row][ind] = value.find("span", class_ = "wx-value").get_text()
-    
+    df = DataFrame(weather_string)
     
     if bulk == 1:
         filename = str(date.year)+'-'+str(date.month)+'-'+str(date.day)+'.csv'
