@@ -82,10 +82,10 @@ def get_weather(zipcode, interval, from_date, to_date=None, filename='weather.cs
     
     print('found ' + str(len(df) - 1) + ' rows... ', end="")
     if os.path.isfile(filename):
-        df.to_csv(filename, mode='a', header=False)
+        df.to_csv(filename, mode='a', , index = False, header = ["Time (EST)", "Tempearture (°F)", "Windchill (°F)", "Dew Point (°F)", "Humidity (%)", "Pressure (in)", "Visibility (mi)", "Wind Direction", "Wind Speed (mph)", "Gust Speed (mph)", "Precip", "Events", "Conditions"])
         print('updating ' + filename + '... ', end="")
     else:
-        df.to_csv(filename)
+        df.to_csv(filename, index = False, header = ["Time (EST)", "Tempearture (°F)", "Windchill (°F)", "Dew Point (°F)", "Humidity (%)", "Pressure (in)", "Visibility (mi)", "Wind Direction", "Wind Speed (mph)", "Gust Speed (mph)", "Precip", "Events", "Conditions"])
         print('creating ' + filename + '... ', end="")
     print('done')
 
