@@ -79,7 +79,7 @@ def get_weather(zipcode, interval, from_date, to_date=None, filename='weather.cs
     
     if bulk == 1:
         filename = str(date.year)+'-'+str(date.month)+'-'+str(date.day)+'.csv'
-    df = DataFrame.from_csv(weather_stringio, sep=',')
+    
     print('found ' + str(len(df) - 1) + ' rows... ', end="")
     if os.path.isfile(filename):
         df.to_csv(filename, mode='a', header=False)
