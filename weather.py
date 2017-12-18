@@ -17,7 +17,6 @@ import os
 import requests
 import ujson
 from bs4 import BeautifulSoup
-from io import StringIO
 from pandas import DataFrame
 from datetime import datetime
 from dateutil import rrule
@@ -77,7 +76,6 @@ def get_weather(zipcode, interval, from_date, to_date=None, filename='weather.cs
                 else:
                     weather_string[row][ind] = value.find("span", class_ = "wx-value").get_text()
     
-    weather_stringio = StringIO(weather_string)
     
     if bulk == 1:
         filename = str(date.year)+'-'+str(date.month)+'-'+str(date.day)+'.csv'
